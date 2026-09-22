@@ -5,13 +5,13 @@ class MiddleSchoolStudent(Student):
         super().__init__(name, grade, classes)
         self.gets_transportation = gets_transportation
 
-    def gets_transportation(self):
+    def transportation_summary(self):
         has_message = "has" if self.gets_transportation else "doesn't have"
         return f"{self.name} {has_message} transportation"
     
     def summary(self):
         student_summary = super().summary()
-        gets_transportation_message = self.gets_transportation()
+        gets_transportation_message = self.transportation_summary()
     
         return "\n".join((student_summary, gets_transportation_message))
         
