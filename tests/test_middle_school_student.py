@@ -25,7 +25,7 @@ def test_middle_school_student_summary_without_transportation():
     pass
 
 # Test summary when there are no classes passed
-def test_middle_school_student_summary_without_classes():
+def test_middle_school_student_without_classes():
     # Arrange
     name = "Larry"
     grade = "7"
@@ -34,10 +34,11 @@ def test_middle_school_student_summary_without_classes():
     # Act
     larry = MiddleSchoolStudent(name, grade, classes, gets_transportation=True)
 
+    # Assert
     assert len(larry.classes) == 0
 
 # Test summary if gets_transportation parameter is not passed in at all
-def test_middle_school_student_summary_no_transportation_paramter_passed():
+def test_middle_school_student_no_transportation_paramter_passed():
     # Arrange
     name = "Mozart"
     grade = "6"
@@ -46,4 +47,5 @@ def test_middle_school_student_summary_no_transportation_paramter_passed():
     # Act
     mozart = MiddleSchoolStudent(name, grade, classes)
 
+    # Assert
     assert mozart.gets_transportation == False
