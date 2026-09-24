@@ -1,5 +1,6 @@
 from school_schedule.middle_school_student import MiddleSchoolStudent
 
+#constructor with transportation = true
 def test_new_valid_middle_school_student_gets_transportation():
 # Arrange
     name = "Ellis"
@@ -15,14 +16,57 @@ def test_new_valid_middle_school_student_gets_transportation():
     assert len(ellis.classes) == 1
     assert ellis.gets_transportation
 
+#default transportation = False
 def test_new_valid_middle_school_student_with_defaults():
-    pass
+    # Arrange
+    name = "Ellis"
+    grade = "junior"
+    classes = ["Painting"]
 
+    # Act
+    ellis = MiddleSchoolStudent(name, grade, classes)
+
+    # Assert
+    assert ellis.name == name
+    assert ellis.grade == grade
+    assert ellis.classes == classes
+    assert ellis.gets_transportation == False
+
+#summary includes transportation when True
 def test_middle_school_student_summary_with_transportation():
-    pass
+    # Arrange
+    name = "Ellis"
+    grade = "junior"
+    classes = ["Painting"]
 
+    # Act
+    ellis = MiddleSchoolStudent(
+        name,
+        grade,
+        classes,
+        gets_transportation=True
+    )
+
+    # Assert
+    assert ellis.summary() == "Ellis is a junior enrolled in 1 classes: Painting\nEllis has transportation"
+
+#summary includes transportation status when False
 def test_middle_school_student_summary_without_transportation():
-    pass
+    # Arrange
+    name = "Ellis"
+    grade = "junior"
+    classes = ["Painting"]
+
+    # Act
+    ellis = MiddleSchoolStudent(
+        name,
+        grade,
+        classes,
+        gets_transportation=False
+    )
+
+    # Assert
+    assert ellis.summary() == "Ellis is a junior enrolled in 1 classes: Painting\nEllis doesn't have transportation"
 
 # Test summary when there are no classes passed
 def test_middle_school_student_without_classes():
@@ -49,3 +93,18 @@ def test_middle_school_student_no_transportation_paramter_passed():
 
     # Assert
     assert mozart.gets_transportation == False
+
+#Test does child class still have the add_class method from parent class
+def test_add_class():
+    # Arrange
+    name = "Ellis"
+    grade = "junior"
+    classes = ["Painting"]
+    new_class = "Writing"
+
+    # Act
+    ellis = MiddleSchoolStudent(name, grade, classes)
+    ellis.add_class(new_class)
+
+    # Assert
+    assert len(ellis.classes) == 2 
