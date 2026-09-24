@@ -51,7 +51,7 @@ def test_middle_school_student_summary_with_transportation():
     assert ellis.summary() == "Ellis is a junior enrolled in 1 classes: Painting\nEllis has transportation"
 
 #summary includes transportation status when False
-def test_middle_school_student_summary_without_transportation():
+def test_middle_school_student_summary_when_transportation_is_false():
     # Arrange
     name = "Ellis"
     grade = "junior"
